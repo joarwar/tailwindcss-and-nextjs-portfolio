@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import { RiMoonFill, RiSunLine } from "react-icons/ri"
 import { IoMdMenu, IoMdClose } from "react-icons/io"
-
+import Image from "next/image"
 interface NavItem {
   label: string
   page: string
@@ -33,13 +33,18 @@ export default function Navbar() {
   const pathname = usePathname()
   const [navbar, setNavbar] = useState(false)
   return (
-    <header className="w-full mx-auto  px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
-      <div className="justify-between md:items-center md:flex">
+    <header className={`w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow ${currentTheme === "dark" ? "bg-gray-900 text-white" : "bg-lime-300 text-gray-900"}`}>
+      <div className="justify-between md:items-center md:flex ">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="home">
               <div className="container flex items-center space-x-2">
-                <h2 className="text-2xl font-bold">Hosna Qasmei</h2>
+              <Image
+             src={currentTheme === "dark" ? "/logo.png" : "/logo1.png"}
+            alt=""
+            width={125}
+            height={125}
+          />
               </div>
             </Link>
             <div className="md:hidden">
@@ -65,9 +70,9 @@ export default function Navbar() {
                   <Link
                     key={idx}
                     to={item.page}
-                    className={
-                      "block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer"
-                    }
+                    className={`block lg:inline-block ${
+                      currentTheme === "dark" ? "text-neutral-100" : "text-neutral-900"
+                    } hover:text-neutral-500 cursor-pointer`}
                     activeClass="active"
                     spy={true}
                     smooth={true}
