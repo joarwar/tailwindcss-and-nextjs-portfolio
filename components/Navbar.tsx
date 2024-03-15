@@ -33,7 +33,7 @@ export default function Navbar() {
   const pathname = usePathname()
   const [navbar, setNavbar] = useState(false)
   return (
-    <header className={`w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow ${currentTheme === "dark" ? "bg-gray-900 text-white" : "bg-lime-300 text-gray-900"}`}>
+    <header className={`w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow ${currentTheme === "dark" ? "bg-black-900 text-white" : "bg-lime-300 text-gray-900"}`}>
       <div className="justify-between md:items-center md:flex ">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
